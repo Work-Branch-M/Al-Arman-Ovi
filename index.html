@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+{{ ... }}
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Al Arman Ovi | AI & Backend Developer</title>
+    <meta name="description" content="AI & Backend Developer | Machine Learning Enthusiast | Researcher" />
+
+    <!-- Preload theme to avoid flash -->
+    <script>
+      (function() {
+        try {
+          const saved = localStorage.getItem('color-theme');
+          if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Favicon (optional) -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#2563EB',
+                50: '#EFF6FF',
+                100: '#DBEAFE',
+                200: '#BFDBFE',
+                300: '#93C5FD',
+                400: '#60A5FA',
+                500: '#3B82F6',
+                600: '#2563EB',
+                700: '#1D4ED8',
+                800: '#1E40AF',
+                900: '#1E3A8A',
+              },
+              base: {
+                light: '#FFFFFF',
+                dark: '#0B1220'
+              }
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+{{ ... }}
+<body class="antialiased bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200" style="font-family: 'Inter', sans-serif;">
+    <!-- Navigation -->
+    <nav class="fixed inset-x-0 top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <a href="#home" class="text-lg sm:text-xl font-bold text-primary-600 dark:text-primary-400">Al Arman Ovi</a>
+
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#contact" class="inline-flex items-center rounded-md bg-primary-600 px-4 py-2 text-white hover:bg-primary-700 transition">Contact</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700" aria-label="Toggle theme">
+                        <svg id="theme-toggle-dark-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="h-5 w-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
+
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700" aria-label="Open menu">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+            <div class="px-4 py-3 space-y-1">
+                <a href="#home" class="mobile-link">Home</a>
+                <a href="#about" class="mobile-link">About</a>
+                <a href="#skills" class="mobile-link">Skills</a>
+                <a href="#projects" class="mobile-link">Projects</a>
+                <a href="#achievements" class="mobile-link">Achievements</a>
+                <a href="#experience" class="mobile-link">Experience</a>
+                <a href="#education" class="mobile-link">Education</a>
+                <a href="#contact" class="block w-full text-center rounded-md bg-primary-600 px-4 py-2 text-white hover:bg-primary-700 transition">Contact</a>
+                <button id="mobile-theme-toggle" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">Toggle Theme</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="text-primary-600 dark:text-primary-400">Al Arman Ovi</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-600 dark:text-gray-300">AI & Backend Developer | Machine Learning Enthusiast | Researcher</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-xl">Passionate about building intelligent systems, scalable web applications, and impactful AI solutions.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="btn-primary">Hire Me</a>
+                        <a href="https://flowcv.com/resume/13q1q7jnul" target="_blank" rel="noopener" class="btn-outline">Download CV</a>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="relative">
+                    <div class="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto rounded-full bg-gradient-to-br from-primary-500 to-primary-700 p-1">
+                        <div class="w-full h-full rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                            <img src="/images/New.png" alt="Profile photo of Al Arman Ovi" class="w-full h-full object-cover rounded-full" loading="eager" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">About <span class="highlight">Me</span></h2>
+            </div>
+            <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                <p class="lead">I am a highly motivated professional with a strong foundation in AI, machine learning, and backend development. I have hands-on experience in Python, Django, Flask, RESTful APIs, SQL, and MongoDB.</p>
+                <p class="lead mt-4">My projects include a Sign Language Detector, a Gender Recognition Model, and an AI Chatbot. As an AI Trainer at Scale AI and a Machine Learning Intern, I have solved complex problems and delivered scalable solutions. I aim to create impactful solutions in AI and software development.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+                    <div>
+                        <h3 class="subsection-title">Personal Information</h3>
+                        <ul class="space-y-2">
+                            <li class="info-row"><span class="info-key">Email:</span><span class="info-val">ovibaridar06@gmail.com</span></li>
+                            <li class="info-row"><span class="info-key">bKash:</span><span class="info-val">01778670554</span></li>
+                            <li class="info-row"><span class="info-key">Location:</span><span class="info-val">Bangladesh</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="subsection-title">Languages</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between mb-1"><span>English</span><span class="text-gray-500 dark:text-gray-400">Fluent</span></div>
+                                <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1"><span>Bengali</span><span class="text-gray-500 dark:text-gray-400">Native</span></div>
+                                <div class="progress"><div class="progress-bar" style="width: 100%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="subsection-title">Programming</h3>
+                    <div class="space-y-4">
+                        <div><div class="flex justify-between mb-1"><span>Python</span><span class="muted">95%</span></div><div class="progress"><div class="progress-bar" style="width:95%"></div></div></div>
+                        <div><div class="flex justify-between mb-1"><span>Django / Flask</span><span class="muted">90%</span></div><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
+                        <div><div class="flex justify-between mb-1"><span>C / C++</span><span class="muted">80%</span></div><div class="progress"><div class="progress-bar" style="width:80%"></div></div></div>
+                        <div><div class="flex justify-between mb-1"><span>SQL / MongoDB</span><span class="muted">90%</span></div><div class="progress"><div class="progress-bar" style="width:90%"></div></div></div>
+                    </div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="subsection-title">AI/ML & Tools</h3>
+                    <div class="space-y-4">
+                        <div><div class="flex justify-between mb-1"><span>TensorFlow / PyTorch</span><span class="muted">85%</span></div><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+                        <div><div class="flex justify-between mb-1"><span>Scikit-learn</span><span class="muted">85%</span></div><div class="progress"><div class="progress-bar" style="width:85%"></div></div></div>
+                        <div class="flex flex-wrap gap-3 pt-2">
+                            <span class="chip">Adobe Illustrator</span>
+                            <span class="chip">Jupyter</span>
+                            <span class="chip">Git</span>
+                            <span class="chip">REST APIs</span>
+                            <span class="chip">QA Automation</span>
+                            <span class="chip">Regression / API Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My <span class="highlight">Projects</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card template repeated -->
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-media">📱</div>
+                    <div class="p-6">
+                        <h3 class="card-title">Bangla Sign Language Detector</h3>
+                        <p class="card-text">Deep learning model for real-time hand sign detection using CNN and OpenCV.</p>
+                        <div class="tag-row"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">OpenCV</span></div>
+                        <div class="card-links"><a href="#">View Project</a><a href="#">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-media">🎙️</div>
+                    <div class="p-6">
+                        <h3 class="card-title">Gender Recognition from Voice</h3>
+                        <p class="card-text">Predict gender from voice using Random Forest & Logistic Regression.</p>
+                        <div class="tag-row"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">Librosa</span></div>
+                        <div class="card-links"><a href="#">View Project</a><a href="#">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-media">🤖</div>
+                    <div class="p-6">
+                        <h3 class="card-title">AI Chatbot</h3>
+                        <p class="card-text">Smart assistant using GPT API with context awareness.</p>
+                        <div class="tag-row"><span class="tag">Python</span><span class="tag">GPT API</span><span class="tag">Flask</span></div>
+                        <div class="card-links"><a href="#">View Project</a><a href="#">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-media">🏥</div>
+                    <div class="p-6">
+                        <h3 class="card-title">Romatoo</h3>
+                        <p class="card-text">Secure social media app for doctors & patients (Flutter + Rust + MongoDB).</p>
+                        <div class="tag-row"><span class="tag">Flutter</span><span class="tag">Rust</span><span class="tag">MongoDB</span></div>
+                        <div class="card-links"><a href="#">View Project</a><a href="#">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-media">✈️</div>
+                    <div class="p-6">
+                        <h3 class="card-title">Travel & Tour Guide Website</h3>
+                        <p class="card-text">Comprehensive guide with booking features and local info.</p>
+                        <div class="tag-row"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span></div>
+                        <div class="card-links"><a href="#">View Project</a><a href="#">GitHub</a></div>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-media">🔍</div>
+                    <div class="p-6">
+                        <h3 class="card-title">District Crime Analysis System</h3>
+                        <p class="card-text">Django-based platform analyzing news data for crime rates.</p>
+                        <div class="tag-row"><span class="tag">Django</span><span class="tag">Python</span><span class="tag">PostgreSQL</span></div>
+                        <div class="card-links"><a href="#">View Project</a><a href="#">GitHub</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">My <span class="highlight">Achievements</span></h2>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="tile" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tile-icon">🏅</div>
+                    <div>
+                        <h3 class="tile-title">2nd Runner-Up at IEEE CS BDC Symposium 2024</h3>
+                        <p class="tile-text">Paper ID 58 - Presented research on advanced machine learning techniques for computer vision applications.</p>
+                        <p class="tile-meta">January 2024</p>
+                    </div>
+                </div>
+                <div class="tile" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tile-icon">🥈</div>
+                    <div>
+                        <h3 class="tile-title">5th Place in National Science & Technology Fair (Bangladesh)</h3>
+                        <p class="tile-text">Awarded for innovative project on AI-based assistive technology for the differently-abled.</p>
+                        <p class="tile-meta">November 2023</p>
+                    </div>
+                </div>
+                <div class="tile" data-aos="fade-up" data-aos-delay="300">
+                    <div class="tile-icon">📄</div>
+                    <div>
+                        <h3 class="tile-title">Research paper published in MEJAST</h3>
+                        <p class="tile-text">Co-authored a paper on enhancing sign language recognition using deep learning techniques.</p>
+                        <p class="tile-meta">August 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-10">
+                <div class="timeline" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot">🧠</div>
+                    <div class="timeline-card">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <h3 class="card-title">AI Trainer – Scale AI</h3>
+                            </div>
+                            <span class="badge">Oct 2024 - Jul 2025</span>
+                        </div>
+                        <p class="card-text mt-2">Training and fine-tuning AI models, improving model accuracy, and developing data annotation guidelines. Collaboration with cross-functional teams.</p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-3 space-y-1">
+                            <li>Improved model accuracy by 15% through advanced training techniques</li>
+                            <li>Developed comprehensive documentation for AI training processes</li>
+                            <li>Mentored junior team members in ML best practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot">🔬</div>
+                    <div class="timeline-card">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <div>
+                                <h3 class="card-title">Machine Learning Intern - Mentorship</h3>
+                            </div>
+                            <span class="badge">Jan 2023 - Jun 2023</span>
+                        </div>
+                        <p class="card-text mt-2">Developed and optimized ML models for CV and NLP tasks, focusing on performance and deployment.</p>
+                        <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 mt-3 space-y-1">
+                            <li>Built real-time object detection (90% accuracy)</li>
+                            <li>Reduced inference time by 40% via quantization</li>
+                            <li>Shipped models to production environments</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Courses -->
+    <section id="education" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Education & <span class="highlight">Courses</span></h2>
+            </div>
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6 flex flex-col gap-2">
+                        <h3 class="card-title">BSc in Computer Science & Engineering</h3>
+                        <p class="text-primary-600 dark:text-primary-400">Pundra University of Science & Technology (PUB)</p>
+                        <div class="flex items-center gap-2 mt-1"><span class="badge">2021 - 2025 (Expected)</span><span class="badge bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">CGPA: 3.55/4.00</span></div>
+                        <p class="card-text mt-2">Coursework: Data Structures, Algorithms, ML, AI, DB Systems, Networks, SE, Web Dev, OS, Architecture.</p>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6 flex flex-col gap-2">
+                        <h3 class="card-title">Higher Secondary Certificate (HSC)</h3>
+                        <p class="text-primary-600 dark:text-primary-400">Joypurhat Mohabidalaya ( The Former Shahid Zia College)</p>
+                        <div class="flex items-center gap-2 mt-1"><span class="badge">2018 - 2020</span><span class="badge bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">GPA: 4.42/5.00</span></div>
+                        <p class="card-text mt-2">Science Group with focus on Physics, Chemistry, and Higher Mathematics.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-7xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="subsection-title">Certifications & Online Courses</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                    <div class="mini-card">
+                        <h4 class="mini-card-title">Machine Learning</h4>
+                        <p class="mini-card-meta">Course & Certificate</p>
+                    </div>
+                    <div class="mini-card">
+                        <h4 class="mini-card-title">HackerRank Problem Solving</h4>
+                        <p class="mini-card-meta">Certificate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+                <p class="mt-6 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Feel free to reach out to me for any questions or opportunities. I'll get back to you as soon as possible!</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="card" data-aos="fade-right">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-semibold mb-6">Send Me a Message</h3>
+                        <form id="contactForm" class="space-y-6" novalidate>
+                            <div>
+                                <label for="name" class="label">Full Name</label>
+                                <input id="name" name="name" type="text" required class="input" />
+                                <p class="err" data-for="name"></p>
+                            </div>
+                            <div>
+                                <label for="email" class="label">Email Address</label>
+                                <input id="email" name="email" type="email" required class="input" />
+                                <p class="err" data-for="email"></p>
+                            </div>
+                            <div>
+                                <label for="subject" class="label">Subject</label>
+                                <input id="subject" name="subject" type="text" required class="input" />
+                                <p class="err" data-for="subject"></p>
+                            </div>
+                            <div>
+                                <label for="message" class="label">Your Message</label>
+                                <textarea id="message" name="message" rows="5" required class="input"></textarea>
+                                <p class="err" data-for="message"></p>
+                            </div>
+                            <button type="submit" class="btn-primary w-full">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="card" data-aos="fade-left">
+                    <div class="p-8 space-y-6">
+                        <h3 class="text-2xl font-semibold">Contact Information</h3>
+                        <div class="info-block"><span class="info-icon">✉️</span><div><h4 class="info-title">Email</h4><p class="info-desc">ovibaridar06@gmail.com</p></div></div>
+                        <div class="info-block"><span class="info-icon">📞</span><div><h4 class="info-title">bKash</h4><p class="info-desc">01778670554</p></div></div>
+                        <div class="info-block"><span class="info-icon">📍</span><div><h4 class="info-title">Location</h4><p class="info-desc">Dhaka, Bangladesh</p></div></div>
+                        <div class="pt-2">
+                            <h4 class="info-title mb-3">Social</h4>
+                            <div class="flex gap-4">
+                                <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="social">LinkedIn</a>
+                                <a href="https://github.com/yourusername" target="_blank" class="social">GitHub</a>
+                                <a href="https://www.researchgate.net/profile/yourprofile" target="_blank" class="social">ResearchGate</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl font-bold">Al Arman Ovi</h2>
+            <p class="mt-2 text-gray-400">AI & Backend Developer | Machine Learning Enthusiast | Researcher</p>
+            <div class="mt-8 border-t border-gray-800 pt-8 text-gray-400 text-sm">&copy; 2025 Al Arman Ovi. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-top hidden" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+
+      // Mobile menu
+      const mobileBtn = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+      // Theme toggle
+      const themeBtn = document.getElementById('theme-toggle');
+      const mobileThemeBtn = document.getElementById('mobile-theme-toggle');
+      const darkIcon = document.getElementById('theme-toggle-dark-icon');
+      const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+      function setIcon() {
+        const isDark = document.documentElement.classList.contains('dark');
+        darkIcon.classList.toggle('hidden', isDark);
+        lightIcon.classList.toggle('hidden', !isDark);
+      }
+      setIcon();
+
+      function toggleTheme() {
+        const html = document.documentElement;
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          html.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        }
+        setIcon();
+      }
+      themeBtn?.addEventListener('click', toggleTheme);
+      mobileThemeBtn?.addEventListener('click', () => { toggleTheme(); mobileMenu?.classList.add('hidden'); });
+
+      // Back to top
+      const backBtn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backBtn.classList.remove('hidden');
+        } else {
+          backBtn.classList.add('hidden');
+        }
+      });
+      backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      // Smooth anchor close for mobile
+      document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+      // Simple form validation + toast
+      const form = document.getElementById('contactForm');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const values = Object.fromEntries(data.entries());
+        const errs = {};
+        if (!values.name || values.name.trim().length < 2) errs.name = 'Please enter your full name.';
+        if (!values.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) errs.email = 'Enter a valid email address.';
+        if (!values.subject || values.subject.trim().length < 2) errs.subject = 'Please add a subject.';
+        if (!values.message || values.message.trim().length < 10) errs.message = 'Message should be at least 10 characters.';
+
+        document.querySelectorAll('.err').forEach(el => el.textContent = '');
+        Object.entries(errs).forEach(([k,v]) => {
+          const p = document.querySelector(`.err[data-for="${k}"]`);
+          if (p) p.textContent = v;
+        });
+        if (Object.keys(errs).length) return;
+
+        alert('Thank you for your message! I will get back to you soon.');
+        form.reset();
+      });
+    </script>
+</body>
+</html>
