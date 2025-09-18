@@ -19,7 +19,7 @@ Personal Website/
 ├─ js/
 │  └─ main.js
 └─ assets/
-   └─ images/ (put your images here)
+   └─ images/ 
 ```
 
 Place your resume as `assets/resume.pdf` and update the download link in `index.html` if needed.
@@ -41,3 +41,4 @@ Just open `index.html` in your browser. No build step required.
 - AOS — Animate On Scroll
 
 MIT License.
+
